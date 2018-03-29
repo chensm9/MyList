@@ -16,14 +16,26 @@ namespace App1.Models {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Item() {
+            ID = DateTime.Now.GetHashCode();
             Line_Visibility = Visibility.Collapsed;
         }
+
+        public Item(db_item item) {
+            ID = item.ID;
+            Title = item.Title;
+            Detail = item.Detail;
+            Date = DateTime.Parse(item.Date);
+            Image = new BitmapImage(new Uri(item.Image_url));
+            Line_Visibility = Visibility.Collapsed;
+        }
+
+        public int ID { get; set; }
 
         private string title;
         public string Title {
             get { return title; }
             set {
-                title = value;
+                //title = value;
                 NotifyPropertyChanged();
             }
         }
@@ -69,7 +81,6 @@ namespace App1.Models {
 
     public struct Info {
         public Item item;
-        public Item old_item;
         public string option;
     }
 }

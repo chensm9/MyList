@@ -67,14 +67,15 @@ namespace App1
                 await dialog.ShowAsync();
 
                 if (message.Equals("任务创建成功")) {
-                    Item item = new Item {
+                    current_item = new Item {
+                        ID = DateTime.Now.GetHashCode(),
                         Title = TitleBox.Text,
                         Detail = DetailBox.Text,
                         Date = DatePicker.Date.DateTime,
                         Image = Image.Source
                     };
                     Info info = new Info {
-                        item = item,
+                        item = current_item,
                         option = "add"
                     };
                     Frame.Navigate(typeof(MainPage), info);
@@ -87,12 +88,6 @@ namespace App1
                 await dialog.ShowAsync();
 
                 if (message == "修改成功") {
-                    Item old_item = new Item {
-                        Image = current_item.Image,
-                        Title = current_item.Title,
-                        Detail = current_item.Detail,
-                        Date = current_item.Date
-                    };
                     current_item.Image = Image.Source;
                     current_item.Title = TitleBox.Text;
                     current_item.Detail = DetailBox.Text;
@@ -100,7 +95,6 @@ namespace App1
 
                     Info info = new Info {
                         item = current_item,
-                        old_item = old_item,
                         option = "update"
                     };
                     Frame.Navigate(typeof(MainPage), info);

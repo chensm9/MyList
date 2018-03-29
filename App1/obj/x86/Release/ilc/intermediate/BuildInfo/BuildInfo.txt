@@ -12,6 +12,9 @@ Microsoft.CSharp.dll                                   : 1.0.24212.01
 Microsoft.VisualBasic.dll                              : 1.0.24212.01
 Microsoft.Win32.Primitives.dll                         : 1.0.24212.01
 mscorlib.dll                                           : 4.6.24301.0
+SQLite.Net.dll                                         : 3.1.0.0
+SQLite.Net.Platform.WinRT.dll                          : 3.1.0.0
+sqlite3.dll                                            : 3.22.0
 System.AppContext.dll                                  : 1.0.24212.01
 System.Buffers.dll                                     : 1.0.24212.01
 System.Collections.Concurrent.dll                      : 4.6.23123.00

@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>df5ddb35-82e6-4810-9bb4-b49ce749ba63</PackageIdentityName>
     <PackageIdentityPublisher>CN=admin</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\admin\Desktop\App1\App1\obj\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\admin\Desktop\lab1code\App1\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\admin\Desktop\App1\App1\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>1A80A12081780A6CC02333A845CC1905A2C481175ED32E1F6A1FB62C1006A92C</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\AppX</LayoutDir>
+    <RegisteredManifestChecksum>4C1529C9CC98456DA5919A453810F7248C903783EFDBA74B0E2D3EFFA3D8B8A0</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>df5ddb35-82e6-4810-9bb4-b49ce749ba63_1.0.0.0_x86__kwmcxzszfer2y</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>df5ddb35-82e6-4810-9bb4-b49ce749ba63_kwmcxzszfer2y!App</RegisteredUserModeAppID>
     <RegisteredPackageID>df5ddb35-82e6-4810-9bb4-b49ce749ba63</RegisteredPackageID>
@@ -28,90 +28,94 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-20T07:05:32.203</Modified>
+      <Modified>2018-03-29T08:55:58.991</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\App1.dll">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\App1.dll">
       <PackagePath>App1.dll</PackagePath>
-      <Modified>2018-03-20T07:05:32.075</Modified>
+      <Modified>2018-03-29T08:55:58.803</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\App1.exe">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2018-03-20T07:05:32.187</Modified>
+      <Modified>2018-03-29T08:55:58.975</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\App1.pdb">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2018-03-20T07:05:32.186</Modified>
+      <Modified>2018-03-29T08:55:58.975</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\castle.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\castle.jpg">
       <PackagePath>Assets\castle.jpg</PackagePath>
       <Modified>2018-03-19T17:19:09.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\gakki.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\gakki.jpg">
       <PackagePath>Assets\gakki.jpg</PackagePath>
       <Modified>2018-03-14T13:57:51.194</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\gakki0.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\gakki0.jpg">
       <PackagePath>Assets\gakki0.jpg</PackagePath>
       <Modified>2018-03-14T16:41:23.660</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\gakki1.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\gakki1.jpg">
       <PackagePath>Assets\gakki1.jpg</PackagePath>
       <Modified>2018-03-14T16:41:47.737</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\gakki2.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\gakki2.jpg">
       <PackagePath>Assets\gakki2.jpg</PackagePath>
       <Modified>2018-03-14T14:14:42.400</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\gakki3.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\gakki3.jpg">
       <PackagePath>Assets\gakki3.jpg</PackagePath>
       <Modified>2018-03-14T16:44:01.734</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\girl.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\girl.jpg">
       <PackagePath>Assets\girl.jpg</PackagePath>
       <Modified>2018-03-15T07:43:26.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\grass.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\grass.jpg">
       <PackagePath>Assets\grass.jpg</PackagePath>
       <Modified>2018-03-20T07:25:50.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\nepal.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\nepal.jpg">
       <PackagePath>Assets\nepal.jpg</PackagePath>
       <Modified>2018-03-19T17:20:24.421</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\raindrops.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\raindrops.jpg">
       <PackagePath>Assets\raindrops.jpg</PackagePath>
       <Modified>2018-03-20T07:26:17.478</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\sea.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\sea.jpg">
       <PackagePath>Assets\sea.jpg</PackagePath>
       <Modified>2018-03-20T07:26:36.564</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\sky.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\sky.jpg">
       <PackagePath>Assets\sky.jpg</PackagePath>
       <Modified>2018-03-19T17:22:05.880</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-03-19T17:41:31.283</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\Assets\superman.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\Assets\superman.jpg">
       <PackagePath>Assets\superman.jpg</PackagePath>
       <Modified>2018-03-20T07:27:03.513</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\clrcompression.dll">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
       <Modified>2016-06-13T13:51:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\App1\App1\bin\x86\Release\ilc\resources.pri">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-20T07:05:13.063</Modified>
+      <Modified>2018-03-29T08:55:33.254</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Release\ilc\sqlite3.dll">
+      <PackagePath>sqlite3.dll</PackagePath>
+      <Modified>2018-03-27T16:32:39.785</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

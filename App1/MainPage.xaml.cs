@@ -42,8 +42,8 @@ namespace App1
         public MainPage() {
             NavigationCacheMode = NavigationCacheMode.Enabled;
             this.InitializeComponent();
-            
-            DB = new database();
+
+            DB = database.Get_db_instance();
             Items = DB.GetAllItems();
         }
 
@@ -75,6 +75,7 @@ namespace App1
 
                 if (message.Equals("任务创建成功")) {
                     Item item = new Item {
+                        ID = DateTime.Now.GetHashCode(),
                         Title = TitleBox.Text,
                         Detail = DetailBox.Text,
                         Date = DatePicker.Date.DateTime,
@@ -92,17 +93,11 @@ namespace App1
                 await dialog.ShowAsync();
 
                 if (message == "修改成功") {
-                    Item old_item = new Item {
-                        Image = current_item.Image,
-                        Title =  current_item.Title ,
-                        Detail = current_item.Detail,
-                        Date = current_item.Date
-                    };
                     current_item.Image = Image.Source;
                     current_item.Title = TitleBox.Text;
                     current_item.Detail = DetailBox.Text;
                     current_item.Date = DatePicker.Date.DateTime;
-                    DB.Update_Item(old_item, current_item);
+                    DB.Update_Item(current_item);
 
                     CreateButton.Content = "Create";
                     clear();
@@ -153,6 +148,20 @@ namespace App1
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e) {
+            if (e.NavigationMode == NavigationMode.New) {
+                if (ApplicationData.Current.LocalSettings.Values.ContainsKey("MainPage"))
+                    ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
+            } else {
+                if (ApplicationData.Current.LocalSettings.Values.ContainsKey("MainPage")) {
+                    var composite = ApplicationData.Current.LocalSettings.Values["MainPage"] as ApplicationDataCompositeValue;
+                    TitleBox.Text = composite["Title"] as string;
+                    DetailBox.Text = composite["Detail"] as string;
+                    DatePicker.Date = DateTime.Parse((string)composite["Date"]);
+                    Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
+                    ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
+                }
+            }
+
             base.OnNavigatedTo(e);
             if (e.Parameter.ToString() != "") {
                 Info info = (Info)e.Parameter;
@@ -163,12 +172,25 @@ namespace App1
                     DB.Delete_Item(info.item);
                     Items.Remove(info.item);
                 } else if (info.option == "update") {
-                    DB.Update_Item(info.old_item, info.item);
+                    DB.Update_Item(info.item);
                 }
             }
             //隐藏回退按钮
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 AppViewBackButtonVisibility.Collapsed;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e) {
+            bool suspending = ((App)App.Current).issuspend;
+            if (suspending) {
+                ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue();
+                composite["Title"] = TitleBox.Text;
+                composite["Detail"] = DetailBox.Text;
+                composite["Date"] = DatePicker.Date.ToString();
+                composite["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString();
+                ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
+            }
+            base.OnNavigatedFrom(e);
         }
 
         private async void Select_Click(object sender, RoutedEventArgs e) {

@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>df5ddb35-82e6-4810-9bb4-b49ce749ba63</PackageIdentityName>
     <PackageIdentityPublisher>CN=admin</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>F25211C5674AE060743BDABFB5C4FC9752927EAB227709503F079A4908E38082</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>df5ddb35-82e6-4810-9bb4-b49ce749ba63_1.0.0.0_x86__kwmcxzszfer2y</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>df5ddb35-82e6-4810-9bb4-b49ce749ba63_kwmcxzszfer2y!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-28T12:16:28.083</Modified>
+      <Modified>2018-03-29T16:30:59.111</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\App1.exe">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2018-03-28T12:16:27.413</Modified>
+      <Modified>2018-03-29T16:30:58.387</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -507,68 +507,68 @@
       <PackagePath>sqlite3.dll</PackagePath>
       <Modified>2018-03-27T16:32:39.614</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\castle.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\castle.jpg">
       <PackagePath>Assets\castle.jpg</PackagePath>
       <Modified>2018-03-19T17:19:09.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\girl.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\girl.jpg">
       <PackagePath>Assets\girl.jpg</PackagePath>
       <Modified>2018-03-15T07:43:26.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki.jpg">
       <PackagePath>Assets\gakki.jpg</PackagePath>
       <Modified>2018-03-14T13:57:51.194</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki0.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki0.jpg">
       <PackagePath>Assets\gakki0.jpg</PackagePath>
       <Modified>2018-03-14T16:41:23.660</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki1.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki1.jpg">
       <PackagePath>Assets\gakki1.jpg</PackagePath>
       <Modified>2018-03-14T16:41:47.737</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki2.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki2.jpg">
       <PackagePath>Assets\gakki2.jpg</PackagePath>
       <Modified>2018-03-14T14:14:42.400</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki3.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki3.jpg">
       <PackagePath>Assets\gakki3.jpg</PackagePath>
       <Modified>2018-03-14T16:44:01.734</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\grass.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\grass.jpg">
       <PackagePath>Assets\grass.jpg</PackagePath>
       <Modified>2018-03-20T07:25:50.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\nepal.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\nepal.jpg">
       <PackagePath>Assets\nepal.jpg</PackagePath>
       <Modified>2018-03-19T17:20:24.421</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\raindrops.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\raindrops.jpg">
       <PackagePath>Assets\raindrops.jpg</PackagePath>
       <Modified>2018-03-20T07:26:17.478</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sea.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\sea.jpg">
       <PackagePath>Assets\sea.jpg</PackagePath>
       <Modified>2018-03-20T07:26:36.564</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sky.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\sky.jpg">
       <PackagePath>Assets\sky.jpg</PackagePath>
       <Modified>2018-03-19T17:22:05.880</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\superman.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\superman.jpg">
       <PackagePath>Assets\superman.jpg</PackagePath>
       <Modified>2018-03-20T07:27:03.513</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-03-19T17:41:31.283</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-03-10T07:39:41.045</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\App1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\App1.xr.xml">
       <PackagePath>App1.xr.xml</PackagePath>
       <Modified>2018-03-27T15:46:42.676</Modified>
     </AppxPackagedFile>
@@ -576,14 +576,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-03-28T17:58:25.952</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-28T12:16:27.892</Modified>
+      <Modified>2018-03-29T16:30:58.881</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\App1.exe">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2018-03-28T12:16:28.079</Modified>
+      <Modified>2018-03-29T16:30:59.104</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
