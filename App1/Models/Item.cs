@@ -35,7 +35,7 @@ namespace App1.Models {
         public string Title {
             get { return title; }
             set {
-                //title = value;
+                title = value;
                 NotifyPropertyChanged();
             }
         }

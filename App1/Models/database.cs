@@ -42,7 +42,7 @@ namespace App1.Models {
         }
 
         private static database instance;
-        public static database Get_db_instance() {
+        public static database get_instance() {
             if (instance == null)
                 instance = new database();
             return instance;
@@ -68,6 +68,9 @@ namespace App1.Models {
 
         public async void Delete_Item(Item item) {
             try {
+                //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                //StorageFile imageFile = await storageFolder.GetFileAsync(((BitmapImage)item.Image).UriSource);
+                //await imageFile.DeleteAsync();
                 conn.Delete(new db_item(item));
             } catch {
                 MessageDialog dialog = new MessageDialog("数据库异常，删除数据失败");

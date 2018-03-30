@@ -37,7 +37,25 @@ namespace App1
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
-            this.Main_Grid.Background = this.Frame.Background;
+            if (e.NavigationMode == NavigationMode.New) {
+                if (ApplicationData.Current.LocalSettings.Values.ContainsKey("NewPage"))
+                    ApplicationData.Current.LocalSettings.Values.Remove("NewPage");
+            } else {
+                if (ApplicationData.Current.LocalSettings.Values.ContainsKey("NewPage")) {
+                    var composite = ApplicationData.Current.LocalSettings.Values["NewPage"] as ApplicationDataCompositeValue;
+                    TitleBox.Text = composite["Title"] as string;
+                    DetailBox.Text = composite["Detail"] as string;
+                    DatePicker.Date = DateTime.Parse((string)composite["Date"]);
+                    Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
+                    //this.CreateButton.Content = composite["button_type"] as string;
+                    //this.Frame.Background = new ImageBrush {
+                    //    ImageSource = new BitmapImage(new Uri((string)composite["background_uri"]))
+                    //};
+                    ApplicationData.Current.LocalSettings.Values.Remove("NewPage");
+                }
+            }
+
+            this.Background = this.Frame.Background;
             base.OnNavigatedTo(e);
             if (e.Parameter != null) {
                 current_item = ((Info)e.Parameter).item;
@@ -48,6 +66,23 @@ namespace App1
                 DeleteButton.Visibility = Visibility.Visible;
                 CreateButton.Content = "Update";
             }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e) {
+            bool suspending = ((App)App.Current).issuspend;
+            if (suspending) {
+                ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue {
+                    ["Title"] = TitleBox.Text,
+                    ["Detail"] = DetailBox.Text,
+                    ["Date"] = DatePicker.Date.ToString(),
+                    ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString(),
+                    //["button_type"] = this.CreateButton.Content.ToString(),
+                    //["background_uri"] = ((BitmapImage)((ImageBrush)this.Background).ImageSource).UriSource.ToString()
+                };
+                ApplicationData.Current.LocalSettings.Values["NewPage"] = composite;
+                ((App)App.Current).issuspend = false;
+            }
+            base.OnNavigatedFrom(e);
         }
 
         private async void CreateButton_Click(object sender, RoutedEventArgs e) {
@@ -129,8 +164,9 @@ namespace App1
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e) {
             this.Image.Width = 80 + this.slider.Value / 100 * (130-80);
             this.Image.Height = 80 + this.slider.Value / 100 * (130-80);
-            Thickness temp = new Thickness();
-            temp.Top = 50 - 50 * slider.Value / 200;
+            Thickness temp = new Thickness {
+                Top = 50 - 50 * slider.Value / 200
+            };
             this.Image.Margin = temp;
         }
 
@@ -144,37 +180,16 @@ namespace App1
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
 
-            Windows.Storage.StorageFile file = await openPicker.PickSingleFileAsync();
+            StorageFile file = await openPicker.PickSingleFileAsync();
 
             if (file != null) {
-                using (IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read)) {
-                    BitmapImage srcImage = new BitmapImage();
-                    await srcImage.SetSourceAsync(stream);
-                    this.Image.Source = srcImage;
-                    save_image(file.Name);
-                }
+                StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
+                StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
+                string new_name = DateTime.Now.ToString() + file.Name;
+                await file.CopyAsync(folder, new_name, NameCollisionOption.ReplaceExisting);
+                this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + new_name));
             }
         }
 
-        private async void save_image(string desiredName) {
-            StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
-            StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
-            StorageFile saveFile = await folder.CreateFileAsync(desiredName, CreationCollisionOption.OpenIfExists);
-            RenderTargetBitmap bitmap = new RenderTargetBitmap();
-            await bitmap.RenderAsync(this.Image);
-            var pixelBuffer = await bitmap.GetPixelsAsync();
-            using (var fileStream = await saveFile.OpenAsync(FileAccessMode.ReadWrite)) {
-                var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8,
-                                    BitmapAlphaMode.Ignore,
-                                    (uint)bitmap.PixelWidth,
-                                    (uint)bitmap.PixelHeight,
-                                    DisplayInformation.GetForCurrentView().LogicalDpi,
-                                    DisplayInformation.GetForCurrentView().LogicalDpi,
-                                    pixelBuffer.ToArray());
-                await encoder.FlushAsync();
-            }
-            this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + desiredName));
-        }
     }
 }

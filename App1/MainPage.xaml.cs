@@ -43,7 +43,7 @@ namespace App1
             NavigationCacheMode = NavigationCacheMode.Enabled;
             this.InitializeComponent();
 
-            DB = database.Get_db_instance();
+            DB = database.get_instance();
             Items = DB.GetAllItems();
         }
 
@@ -183,12 +183,14 @@ namespace App1
         protected override void OnNavigatedFrom(NavigationEventArgs e) {
             bool suspending = ((App)App.Current).issuspend;
             if (suspending) {
-                ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue();
-                composite["Title"] = TitleBox.Text;
-                composite["Detail"] = DetailBox.Text;
-                composite["Date"] = DatePicker.Date.ToString();
-                composite["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString();
+                ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue {
+                    ["Title"] = TitleBox.Text,
+                    ["Detail"] = DetailBox.Text,
+                    ["Date"] = DatePicker.Date.ToString(),
+                    ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString()
+                };
                 ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
+                ((App)App.Current).issuspend = false;
             }
             base.OnNavigatedFrom(e);
         }
@@ -203,38 +205,37 @@ namespace App1
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
 
-            Windows.Storage.StorageFile file = await openPicker.PickSingleFileAsync();
+            StorageFile file = await openPicker.PickSingleFileAsync();
 
             if (file != null) {
-                using (IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read)) {
-                    BitmapImage srcImage = new BitmapImage();
-                    await srcImage.SetSourceAsync(stream);
-                    this.Image.Source = srcImage;
-                    save_image(file.Name);
-                }
+                StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
+                StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
+                string new_name = DateTime.Now.ToString() + file.Name;
+                await file.CopyAsync(folder, new_name, NameCollisionOption.ReplaceExisting);
+                this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + new_name));
             }
         }
 
-        private async void save_image(string desiredName) {
-            StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
-            StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
-            StorageFile saveFile = await folder.CreateFileAsync(desiredName, CreationCollisionOption.OpenIfExists);
-            RenderTargetBitmap bitmap = new RenderTargetBitmap();
-            await bitmap.RenderAsync(this.Image);
-            var pixelBuffer = await bitmap.GetPixelsAsync();
-            using (var fileStream = await saveFile.OpenAsync(FileAccessMode.ReadWrite)) {
-                var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8,
-                                    BitmapAlphaMode.Ignore,
-                                    (uint)bitmap.PixelWidth,
-                                    (uint)bitmap.PixelHeight,
-                                    DisplayInformation.GetForCurrentView().LogicalDpi,
-                                    DisplayInformation.GetForCurrentView().LogicalDpi,
-                                    pixelBuffer.ToArray());
-                await encoder.FlushAsync();
-            }
-            this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + desiredName));
-        }
+        //private async void save_image(string desiredName) {
+        //    StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
+        //    StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
+        //    StorageFile saveFile = await folder.CreateFileAsync(desiredName, CreationCollisionOption.OpenIfExists);
+        //    RenderTargetBitmap bitmap = new RenderTargetBitmap();
+        //    await bitmap.RenderAsync(this.Image);
+        //    var pixelBuffer = await bitmap.GetPixelsAsync();
+        //    using (var fileStream = await saveFile.OpenAsync(FileAccessMode.ReadWrite)) {
+        //        var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
+        //        encoder.SetPixelData(BitmapPixelFormat.Bgra8,
+        //                            BitmapAlphaMode.Ignore,
+        //                            (uint)bitmap.PixelWidth,
+        //                            (uint)bitmap.PixelHeight,
+        //                            DisplayInformation.GetForCurrentView().LogicalDpi,
+        //                            DisplayInformation.GetForCurrentView().LogicalDpi,
+        //                            pixelBuffer.ToArray());
+        //        await encoder.FlushAsync();
+        //    }
+        //    this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + desiredName));
+        //}
 
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e) {
             this.Image.Width = 80 + this.slider.Value / 100 * (130 - 80);
@@ -246,8 +247,9 @@ namespace App1
 
         private void Background_Change(object sender, RoutedEventArgs e) {
             var s = (MenuFlyoutItem)sender;
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri(BaseUri, "Assets/"+s.Text+".jpg"));
+            ImageBrush imageBrush = new ImageBrush {
+                ImageSource = new BitmapImage(new Uri(BaseUri, "Assets/" + s.Text + ".jpg"))
+            };
             Main_Grid.Background = imageBrush;
             if (s.Text == "sky" || s.Text == "nepal" || s.Text == "raindrops")
                 this.RequestedTheme = ElementTheme.Light;
