@@ -60,7 +60,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="ListView" Grid.Column="0" ItemsSource="{x:Bind Items}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True" ItemClick="Edit">
+        <ListView x:Name="ListView" Grid.Column="0" ItemsSource="{x:Bind DB.Items}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True" ItemClick="Edit">
             <ListView.Header>
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Height="60" FontWeight="Bold" Text="  TODO LIST" Margin="20"/>
             </ListView.Header>
@@ -73,7 +73,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32" Click="{x:Bind Check_box}" IsChecked="False"/>
+                        <CheckBox Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"  IsChecked="{x:Bind Is_Checked,Mode=TwoWay}"/>
                         <Image Grid.Column="1" Source="{x:Bind Image, Mode=TwoWay}" Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
                         <TextBlock Grid.Column="2" Text="{x:Bind Title, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20"/>
                         <Line Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center" Visibility="{x:Bind Line_Visibility, Mode=TwoWay}"/>

@@ -33,12 +33,20 @@ namespace App1.Models {
     }
 
     public class database {
-        string path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, "my_list.sqlite");
-        SQLiteConnection conn;
+        public ObservableCollection<Item> Items { set; get; }
+        public Item current_item { set; get; }
+        private SQLiteConnection conn;
 
         private database () {
+            string path = System.IO.Path.Combine(ApplicationData.Current.LocalFolder.Path, "my_list.sqlite");
             conn = new SQLiteConnection(new SQLitePlatformWinRT(), path);
             conn.CreateTable<db_item>();
+
+            Items = new ObservableCollection<Item>();
+            List<db_item> db_item_list = conn.Query<db_item>("select * from db_item");
+            foreach (var item in db_item_list) {
+                Items.Add(new Item(item));
+            }
         }
 
         private static database instance;
@@ -48,18 +56,10 @@ namespace App1.Models {
             return instance;
         }
 
-        public ObservableCollection<Item> GetAllItems() {
-            ObservableCollection<Item> Items = new ObservableCollection<Item>();
-            List<db_item> db_item_list = conn.Query<db_item>("select * from db_item");
-            foreach (var item in db_item_list) {
-                Items.Add(new Item(item));
-            }
-            return Items;
-        }
-
         public async void Insert_Item(Item item) {
             try {
                 conn.Insert(new db_item(item));
+                Items.Add(item);
             } catch {
                 MessageDialog dialog = new MessageDialog("数据库异常，插入数据失败");
                 await dialog.ShowAsync();
@@ -68,9 +68,7 @@ namespace App1.Models {
 
         public async void Delete_Item(Item item) {
             try {
-                //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                //StorageFile imageFile = await storageFolder.GetFileAsync(((BitmapImage)item.Image).UriSource);
-                //await imageFile.DeleteAsync();
+                Items.Remove(item);
                 conn.Delete(new db_item(item));
             } catch {
                 MessageDialog dialog = new MessageDialog("数据库异常，删除数据失败");

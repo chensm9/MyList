@@ -60,7 +60,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:ConnectionId='6' x:Name="ListView" Grid.Column="0"                              HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True"                 >
+        <ListView x:ConnectionId='6' x:Name="ListView" Grid.Column="0"                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True"                 >
             <ListView.Header>
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Height="60" FontWeight="Bold" Text="  TODO LIST" Margin="20"/>
             </ListView.Header>
@@ -73,7 +73,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                            IsChecked="False"/>
+                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                             />
                         <Image x:ConnectionId='23' Grid.Column="1"                                      Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
                         <TextBlock x:ConnectionId='24' Grid.Column="2"                                    VerticalAlignment="Center" FontSize="20"/>
                         <Line x:ConnectionId='25' Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center"                                                   />

@@ -31,9 +31,11 @@ namespace App1
     public sealed partial class NewPage : Page
     {
         private Item current_item;
+        private database DB;
 
         public NewPage() {
             this.InitializeComponent();
+            DB = database.get_instance();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
@@ -47,24 +49,33 @@ namespace App1
                     DetailBox.Text = composite["Detail"] as string;
                     DatePicker.Date = DateTime.Parse((string)composite["Date"]);
                     Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
-                    //this.CreateButton.Content = composite["button_type"] as string;
-                    //this.Frame.Background = new ImageBrush {
-                    //    ImageSource = new BitmapImage(new Uri((string)composite["background_uri"]))
-                    //};
+                    this.CreateButton.Content = composite["button_type"] as string;
+                    if (composite.ContainsKey("Item_Id")) {
+                        db_item item = new db_item {
+                            ID = (int)composite["Item_Id"],
+                            Title = composite["Item_Title"] as string,
+                            Detail = composite["Item_Detail"] as string,
+                            Date = composite["Item_Date"] as string,
+                            Image_url = composite["Item_Image_uri"] as string
+                        };
+                        current_item = new Item(item);
+                        DeleteButton.Visibility = Visibility.Visible;
+                        CreateButton.Content = "Update";
+                    }
                     ApplicationData.Current.LocalSettings.Values.Remove("NewPage");
                 }
             }
 
             this.Background = this.Frame.Background;
             base.OnNavigatedTo(e);
-            if (e.Parameter != null) {
-                current_item = ((Info)e.Parameter).item;
+            if (e.Parameter != null && (string)e.Parameter == "update" && DB.current_item != null) {
+                current_item = DB.current_item;
+                DeleteButton.Visibility = Visibility.Visible;
+                CreateButton.Content = "Update";
                 TitleBox.Text = current_item.Title;
                 DetailBox.Text = current_item.Detail;
                 DatePicker.Date = current_item.Date;
                 Image.Source = current_item.Image;
-                DeleteButton.Visibility = Visibility.Visible;
-                CreateButton.Content = "Update";
             }
         }
 
@@ -76,9 +87,17 @@ namespace App1
                     ["Detail"] = DetailBox.Text,
                     ["Date"] = DatePicker.Date.ToString(),
                     ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString(),
-                    //["button_type"] = this.CreateButton.Content.ToString(),
-                    //["background_uri"] = ((BitmapImage)((ImageBrush)this.Background).ImageSource).UriSource.ToString()
+                    ["button_type"] = this.CreateButton.Content.ToString()
                 };
+                
+                if (current_item != null) {
+                    db_item item = new db_item(current_item);
+                    composite["Item_Id"] = item.ID;
+                    composite["Item_Title"] = item.Title;
+                    composite["Item_Detail"] = item.Detail;
+                    composite["Item_Date"] = item.Date;
+                    composite["Item_Image_uri"] = item.Image_url;
+                }
                 ApplicationData.Current.LocalSettings.Values["NewPage"] = composite;
                 ((App)App.Current).issuspend = false;
             }
@@ -109,11 +128,8 @@ namespace App1
                         Date = DatePicker.Date.DateTime,
                         Image = Image.Source
                     };
-                    Info info = new Info {
-                        item = current_item,
-                        option = "add"
-                    };
-                    Frame.Navigate(typeof(MainPage), info);
+                    DB.Insert_Item(current_item);
+                    Frame.Navigate(typeof(MainPage));
                 }
             } else {
                 if (message == "")
@@ -128,23 +144,17 @@ namespace App1
                     current_item.Detail = DetailBox.Text;
                     current_item.Date = DatePicker.Date.DateTime;
 
-                    Info info = new Info {
-                        item = current_item,
-                        option = "update"
-                    };
-                    Frame.Navigate(typeof(MainPage), info);
+                    DB.Update_Item(current_item);
+                    Frame.Navigate(typeof(MainPage));
                 }
             }
         }
 
         private async void Delete(object sender, RoutedEventArgs e) {
-            Info info = new Info {
-                item = current_item,
-                option = "delete"
-            };
+            DB.Delete_Item(current_item);
             MessageDialog dialog = new MessageDialog("删除成功");
             await dialog.ShowAsync();
-            Frame.Navigate(typeof(MainPage), info);
+            Frame.Navigate(typeof(MainPage));
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e) {
@@ -152,7 +162,7 @@ namespace App1
                 TitleBox.Text = "";
                 DetailBox.Text = "";
                 DatePicker.Date = DateTime.Now;
-                Image.Source = new BitmapImage(new Uri(BaseUri, "Assets/gakki0.jpg"));
+                Image.Source = new BitmapImage(new Uri(BaseUri, "Assets/gakki2.jpg"));
             } else {
                 TitleBox.Text = current_item.Title;
                 DetailBox.Text = current_item.Detail;
@@ -185,7 +195,8 @@ namespace App1
             if (file != null) {
                 StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
                 StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
-                string new_name = DateTime.Now.ToString() + file.Name;
+                //string new_name = DateTime.Now.Ticks + file.Name;
+                string new_name = file.Name;
                 await file.CopyAsync(folder, new_name, NameCollisionOption.ReplaceExisting);
                 this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + new_name));
             }

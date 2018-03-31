@@ -35,7 +35,6 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public ObservableCollection<Item> Items;
         private Item current_item;
         private database DB;
         
@@ -44,7 +43,6 @@ namespace App1
             this.InitializeComponent();
 
             DB = database.get_instance();
-            Items = DB.GetAllItems();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e) {
@@ -53,8 +51,7 @@ namespace App1
                 clear();
                 return;
             }
-            this.Frame.Background = Main_Grid.Background;
-            this.Frame.Navigate(typeof(NewPage));
+            this.Frame.Navigate(typeof(NewPage), "add");
         }
 
         private async void CreateButton_Click(object sender, RoutedEventArgs e) {
@@ -82,7 +79,6 @@ namespace App1
                         Image = Image.Source
                     };
                     clear();
-                    Items.Add(item);
                     DB.Insert_Item(item);
                 }
             } else {
@@ -112,17 +108,12 @@ namespace App1
                 clear();
 
             } else {
-                Info info = new Info {
-                    item = current_item,
-                    option = "update"
-                };
-                this.Frame.Background = this.Main_Grid.Background;
-                Frame.Navigate(typeof(NewPage), info);
+                DB.current_item = current_item;
+                Frame.Navigate(typeof(NewPage), "update");
             }
         }
 
         private void Delete(object sender, RoutedEventArgs e) {
-            Items.Remove(current_item);
             DB.Delete_Item(current_item);
             CreateButton.Content = "Create";
             clear();
@@ -158,23 +149,14 @@ namespace App1
                     DetailBox.Text = composite["Detail"] as string;
                     DatePicker.Date = DateTime.Parse((string)composite["Date"]);
                     Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
+                    for (var i = 0; i < DB.Items.Count(); i++) {
+                        DB.Items[i].Is_Checked = (bool)composite["if_checked" + i];
+                    }
                     ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
                 }
             }
 
             base.OnNavigatedTo(e);
-            if (e.Parameter.ToString() != "") {
-                Info info = (Info)e.Parameter;
-                if (info.option == "add") {
-                    Items.Add(info.item);
-                    DB.Insert_Item(info.item);
-                } else if (info.option == "delete") {
-                    DB.Delete_Item(info.item);
-                    Items.Remove(info.item);
-                } else if (info.option == "update") {
-                    DB.Update_Item(info.item);
-                }
-            }
             //隐藏回退按钮
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 AppViewBackButtonVisibility.Collapsed;
@@ -189,6 +171,9 @@ namespace App1
                     ["Date"] = DatePicker.Date.ToString(),
                     ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString()
                 };
+                for (var i = 0; i < DB.Items.Count(); i++) {
+                    composite["if_checked" + i] = DB.Items[i].Is_Checked;
+                }
                 ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
                 ((App)App.Current).issuspend = false;
             }
@@ -210,32 +195,12 @@ namespace App1
             if (file != null) {
                 StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
                 StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
-                string new_name = DateTime.Now.ToString() + file.Name;
+                //string new_name = DateTime.Now.Ticks + file.Name;
+                string new_name = file.Name;
                 await file.CopyAsync(folder, new_name, NameCollisionOption.ReplaceExisting);
                 this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + new_name));
             }
         }
-
-        //private async void save_image(string desiredName) {
-        //    StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
-        //    StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
-        //    StorageFile saveFile = await folder.CreateFileAsync(desiredName, CreationCollisionOption.OpenIfExists);
-        //    RenderTargetBitmap bitmap = new RenderTargetBitmap();
-        //    await bitmap.RenderAsync(this.Image);
-        //    var pixelBuffer = await bitmap.GetPixelsAsync();
-        //    using (var fileStream = await saveFile.OpenAsync(FileAccessMode.ReadWrite)) {
-        //        var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
-        //        encoder.SetPixelData(BitmapPixelFormat.Bgra8,
-        //                            BitmapAlphaMode.Ignore,
-        //                            (uint)bitmap.PixelWidth,
-        //                            (uint)bitmap.PixelHeight,
-        //                            DisplayInformation.GetForCurrentView().LogicalDpi,
-        //                            DisplayInformation.GetForCurrentView().LogicalDpi,
-        //                            pixelBuffer.ToArray());
-        //        await encoder.FlushAsync();
-        //    }
-        //    this.Image.Source = new BitmapImage(new Uri(folder.Path + "/" + desiredName));
-        //}
 
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e) {
             this.Image.Width = 80 + this.slider.Value / 100 * (130 - 80);
@@ -250,12 +215,12 @@ namespace App1
             ImageBrush imageBrush = new ImageBrush {
                 ImageSource = new BitmapImage(new Uri(BaseUri, "Assets/" + s.Text + ".jpg"))
             };
-            Main_Grid.Background = imageBrush;
+            this.Background = imageBrush;
             if (s.Text == "sky" || s.Text == "nepal" || s.Text == "raindrops")
                 this.RequestedTheme = ElementTheme.Light;
             else
                 this.RequestedTheme = ElementTheme.Dark;
-            this.Frame.Background = this.Main_Grid.Background;
+            this.Frame.Background = this.Background;
         }
 
     }

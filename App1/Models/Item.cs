@@ -18,6 +18,7 @@ namespace App1.Models {
         public Item() {
             ID = DateTime.Now.GetHashCode();
             Line_Visibility = Visibility.Collapsed;
+            Is_Checked = false;
         }
 
         public Item(db_item item) {
@@ -27,6 +28,7 @@ namespace App1.Models {
             Date = DateTime.Parse(item.Date);
             Image = new BitmapImage(new Uri(item.Image_url));
             Line_Visibility = Visibility.Collapsed;
+            Is_Checked = false;
         }
 
         public int ID { get; set; }
@@ -67,20 +69,20 @@ namespace App1.Models {
             }
         }
 
-        public bool If_ckecked { get; set; }
-        public void Check_box() {
-            if (If_ckecked == false) {
-                If_ckecked = true;
-                Line_Visibility = Visibility.Visible;
-            } else {
-                If_ckecked = false;
-                Line_Visibility = Visibility.Collapsed;
+        public Boolean? is_checked { set; get; }
+        public Boolean? Is_Checked {
+            set {
+                is_checked = value;
+                if (is_checked == true) {
+                    Line_Visibility = Visibility.Visible;
+                } else {
+                    Line_Visibility = Visibility.Collapsed;
+                }
+                NotifyPropertyChanged();
+            }
+            get {
+                return is_checked;
             }
         }
-    }
-
-    public struct Info {
-        public Item item;
-        public string option;
     }
 }
