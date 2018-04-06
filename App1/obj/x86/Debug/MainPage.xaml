@@ -2,7 +2,6 @@
     x:Class="App1.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:App1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:App1.Models"
@@ -60,12 +59,12 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:ConnectionId='6' x:Name="ListView" Grid.Column="0"                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True"                 >
+        <ListView x:ConnectionId='6' x:Name="ListView" Grid.Column="0"                                                    HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True"                 >
             <ListView.Header>
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Height="60" FontWeight="Bold" Text="  TODO LIST" Margin="20"/>
             </ListView.Header>
             <ListView.ItemTemplate>
-                <DataTemplate                       >
+                <DataTemplate                           >
                     <Grid x:ConnectionId='21' Height="100" MinWidth="300">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="42"/>
@@ -73,7 +72,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                             />
+                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                           />
                         <Image x:ConnectionId='23' Grid.Column="1"                                      Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
                         <TextBlock x:ConnectionId='24' Grid.Column="2"                                    VerticalAlignment="Center" FontSize="20"/>
                         <Line x:ConnectionId='25' Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center"                                                   />

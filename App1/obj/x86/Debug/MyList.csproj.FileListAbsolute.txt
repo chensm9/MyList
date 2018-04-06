@@ -126,6 +126,7 @@ C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\System.Xml.ReaderWriter.dll
 C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\System.Xml.XmlSerializer.dll
+C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\MyList.csprojResolveAssemblyReference.cache
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\App.g.i.cs
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\App.g.cs
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\MainPage.g.i.cs
@@ -222,4 +223,3 @@ C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\MultipleQualifiersPerDimensio
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\resources.en-us.resfiles
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\MyList.csprojResolveAssemblyReference.cache

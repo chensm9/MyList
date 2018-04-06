@@ -1,30 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Text;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
 using Windows.UI.Core;
-using System.Collections.ObjectModel;
-using App1.Models;
 using Windows.Storage;
-using Windows.Graphics.Imaging;
-using Windows.Graphics.Display;
+using App1.ViewModels;
+using App1.Models;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -35,14 +21,13 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Item current_item;
-        private database DB;
+        private ListItemViewModels listItemViewModels;
         
         public MainPage() {
             NavigationCacheMode = NavigationCacheMode.Enabled;
             this.InitializeComponent();
 
-            DB = database.get_instance();
+            listItemViewModels = ListItemViewModels.get_instance();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e) {
@@ -71,15 +56,16 @@ namespace App1
                 await dialog.ShowAsync();
 
                 if (message.Equals("任务创建成功")) {
-                    Item item = new Item {
+                    ListItem item = new ListItem {
                         ID = DateTime.Now.GetHashCode(),
                         Title = TitleBox.Text,
                         Detail = DetailBox.Text,
                         Date = DatePicker.Date.DateTime,
-                        Image = Image.Source
+                        Image = Image.Source,
+                        Complete = false
                     };
+                    listItemViewModels.AddListItem(item);
                     clear();
-                    DB.Insert_Item(item);
                 }
             } else {
                 if (message == "")
@@ -89,11 +75,11 @@ namespace App1
                 await dialog.ShowAsync();
 
                 if (message == "修改成功") {
-                    current_item.Image = Image.Source;
-                    current_item.Title = TitleBox.Text;
-                    current_item.Detail = DetailBox.Text;
-                    current_item.Date = DatePicker.Date.DateTime;
-                    DB.Update_Item(current_item);
+                    listItemViewModels.select_item.Image = Image.Source;
+                    listItemViewModels.select_item.Title = TitleBox.Text;
+                    listItemViewModels.select_item.Detail = DetailBox.Text;
+                    listItemViewModels.select_item.Date = DatePicker.Date.DateTime;
+                    listItemViewModels.UpdateListItem();
 
                     CreateButton.Content = "Create";
                     clear();
@@ -102,19 +88,19 @@ namespace App1
         }
 
         private void Edit(object sender, ItemClickEventArgs e) {
-            current_item = e.ClickedItem as Item;
+            listItemViewModels.select_item = e.ClickedItem as ListItem;
             if (Window.Current.Bounds.Width >= 800) {
                 CreateButton.Content = "Update";
                 clear();
 
             } else {
-                DB.current_item = current_item;
+                this.Frame.Background = this.Main_Grid.Background;
                 Frame.Navigate(typeof(NewPage), "update");
             }
         }
 
         private void Delete(object sender, RoutedEventArgs e) {
-            DB.Delete_Item(current_item);
+            listItemViewModels.DeleteListItem();
             CreateButton.Content = "Create";
             clear();
         }
@@ -131,10 +117,10 @@ namespace App1
                 Image.Source = new BitmapImage(new Uri(BaseUri, "Assets/gakki2.jpg"));
                 DeleteButton.Visibility = Visibility.Collapsed;
             } else {
-                TitleBox.Text = current_item.Title;
-                DetailBox.Text = current_item.Detail;
-                DatePicker.Date = current_item.Date;
-                Image.Source = current_item.Image;
+                TitleBox.Text = listItemViewModels.select_item.Title;
+                DetailBox.Text = listItemViewModels.select_item.Detail;
+                DatePicker.Date = listItemViewModels.select_item.Date;
+                Image.Source = listItemViewModels.select_item.Image;
                 DeleteButton.Visibility = Visibility.Visible;
             }
         }
@@ -149,8 +135,11 @@ namespace App1
                     DetailBox.Text = composite["Detail"] as string;
                     DatePicker.Date = DateTime.Parse((string)composite["Date"]);
                     Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
-                    for (var i = 0; i < DB.Items.Count(); i++) {
-                        DB.Items[i].Is_Checked = (bool)composite["if_checked" + i];
+                    if (composite.ContainsKey("Item_Id")) {
+                        listItemViewModels.select_item =
+                            listItemViewModels.GetListItemByID((int)composite["Item_Id"]);
+                        DeleteButton.Visibility = Visibility.Visible;
+                        CreateButton.Content = "Update";
                     }
                     ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
                 }
@@ -171,9 +160,9 @@ namespace App1
                     ["Date"] = DatePicker.Date.ToString(),
                     ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString()
                 };
-                for (var i = 0; i < DB.Items.Count(); i++) {
-                    composite["if_checked" + i] = DB.Items[i].Is_Checked;
-                }
+                //保存当前select_item的ID以恢复
+                if (listItemViewModels.select_item != null)
+                    composite["Item_Id"] = listItemViewModels.select_item.ID;
                 ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
                 ((App)App.Current).issuspend = false;
             }
@@ -211,16 +200,16 @@ namespace App1
         }
 
         private void Background_Change(object sender, RoutedEventArgs e) {
-            var s = (MenuFlyoutItem)sender;
+            var s = sender as MenuFlyoutItem;
             ImageBrush imageBrush = new ImageBrush {
                 ImageSource = new BitmapImage(new Uri(BaseUri, "Assets/" + s.Text + ".jpg"))
             };
-            this.Background = imageBrush;
+            this.Main_Grid.Background = imageBrush;
             if (s.Text == "sky" || s.Text == "nepal" || s.Text == "raindrops")
                 this.RequestedTheme = ElementTheme.Light;
             else
                 this.RequestedTheme = ElementTheme.Dark;
-            this.Frame.Background = this.Background;
+            this.Frame.Background = this.Main_Grid.Background;
         }
 
     }
