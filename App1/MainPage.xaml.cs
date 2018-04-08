@@ -36,6 +36,8 @@ namespace App1
                 clear();
                 return;
             }
+            this.Frame.Background = this.Main_Grid.Background;
+            this.Frame.RequestedTheme = this.RequestedTheme;
             this.Frame.Navigate(typeof(NewPage), "add");
         }
 
@@ -94,6 +96,7 @@ namespace App1
                 clear();
 
             } else {
+                this.Frame.RequestedTheme = this.RequestedTheme;
                 this.Frame.Background = this.Main_Grid.Background;
                 Frame.Navigate(typeof(NewPage), "update");
             }

@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>df5ddb35-82e6-4810-9bb4-b49ce749ba63</PackageIdentityName>
     <PackageIdentityPublisher>CN=admin</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\admin\Desktop\lab1code\App1\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>F25211C5674AE060743BDABFB5C4FC9752927EAB227709503F079A4908E38082</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>831AE23193DABCAC2CEA03C4120873EF7BB6820C4871E46D9D4E26B394BBDBFE</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>df5ddb35-82e6-4810-9bb4-b49ce749ba63_1.0.0.0_x86__kwmcxzszfer2y</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>df5ddb35-82e6-4810-9bb4-b49ce749ba63_kwmcxzszfer2y!App</RegisteredUserModeAppID>
     <RegisteredPackageID>df5ddb35-82e6-4810-9bb4-b49ce749ba63</RegisteredPackageID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-06T14:40:38.104</Modified>
+      <Modified>2018-04-08T11:34:50.570</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\App1.exe">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2018-04-06T14:40:37.381</Modified>
+      <Modified>2018-04-08T11:34:49.829</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -507,68 +507,276 @@
       <PackagePath>sqlite3.dll</PackagePath>
       <Modified>2018-03-27T16:32:39.614</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\castle.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\castle.jpg">
       <PackagePath>Assets\castle.jpg</PackagePath>
       <Modified>2018-03-19T17:19:09.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\girl.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\girl.jpg">
       <PackagePath>Assets\girl.jpg</PackagePath>
       <Modified>2018-03-15T07:43:26.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki.jpg">
       <PackagePath>Assets\gakki.jpg</PackagePath>
       <Modified>2018-03-14T13:57:51.194</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki0.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki0.jpg">
       <PackagePath>Assets\gakki0.jpg</PackagePath>
       <Modified>2018-03-14T16:41:23.660</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki1.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki1.jpg">
       <PackagePath>Assets\gakki1.jpg</PackagePath>
       <Modified>2018-03-14T16:41:47.737</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki2.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki2.jpg">
       <PackagePath>Assets\gakki2.jpg</PackagePath>
       <Modified>2018-03-14T14:14:42.400</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\gakki3.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki3.jpg">
       <PackagePath>Assets\gakki3.jpg</PackagePath>
       <Modified>2018-03-14T16:44:01.734</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\grass.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\grass.jpg">
       <PackagePath>Assets\grass.jpg</PackagePath>
       <Modified>2018-03-20T07:25:50.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\nepal.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\nepal.jpg">
       <PackagePath>Assets\nepal.jpg</PackagePath>
       <Modified>2018-03-19T17:20:24.421</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\raindrops.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\raindrops.jpg">
       <PackagePath>Assets\raindrops.jpg</PackagePath>
       <Modified>2018-03-20T07:26:17.478</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\sea.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sea.jpg">
       <PackagePath>Assets\sea.jpg</PackagePath>
       <Modified>2018-03-20T07:26:36.564</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\sky.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sky.jpg">
       <PackagePath>Assets\sky.jpg</PackagePath>
       <Modified>2018-03-19T17:22:05.880</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\superman.jpg">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.jpg">
+      <PackagePath>Assets\SplashScreen.jpg</PackagePath>
+      <Modified>2018-03-19T17:41:16.406</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\superman.jpg">
       <PackagePath>Assets\superman.jpg</PackagePath>
       <Modified>2018-03-20T07:27:03.513</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Assets\SplashScreen.png">
-      <PackagePath>Assets\SplashScreen.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-19T17:41:31.283</Modified>
+      <Modified>2018-04-07T03:09:06.762</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:06.794</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:06.840</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:06.903</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:07.137</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2018-03-05T06:28:45.117</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:19.194</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:19.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:19.241</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:19.257</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:19.288</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:06:52.348</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:06:52.502</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:12:40.475</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:06:52.502</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:06:54.080</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:44.701</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:44.720</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:44.740</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:44.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:44.848</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.913</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:32.020</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.931</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.941</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.725</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.737</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.751</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.767</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.804</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.814</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.826</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.922</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.903</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.837</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:09:31.850</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-05T06:28:45.117</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:57.240</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:57.273</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:57.301</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:57.337</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-07T03:08:57.455</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-03-10T07:39:41.045</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\App1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\App1.xr.xml">
       <PackagePath>App1.xr.xml</PackagePath>
       <Modified>2018-03-31T08:16:41.122</Modified>
     </AppxPackagedFile>
@@ -576,14 +784,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-03-28T17:58:25.952</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-06T14:40:37.919</Modified>
+      <Modified>2018-04-08T11:34:50.325</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\lab1code\App1\bin\x86\Debug\Core\App1.exe">
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2018-04-06T14:40:38.097</Modified>
+      <Modified>2018-04-08T11:34:50.565</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

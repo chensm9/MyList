@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using App1.Models;
 using Windows.Storage;
 using App1.ViewModels;
+using Windows.UI.Xaml.Media;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -29,6 +30,7 @@ namespace App1
         protected override void OnNavigatedTo(NavigationEventArgs e) {
 
             this.Main_Grid.Background = this.Frame.Background;
+            this.RequestedTheme = this.Frame.RequestedTheme;
             base.OnNavigatedTo(e);
             if (e.Parameter != null && (string)e.Parameter == "update" && listItemViewModels.select_item != null) {
                 DeleteButton.Visibility = Visibility.Visible;
@@ -50,6 +52,10 @@ namespace App1
                     DatePicker.Date = DateTime.Parse((string)composite["Date"]);
                     Image.Source = new BitmapImage(new Uri((string)composite["Image_uri"]));
                     this.CreateButton.Content = composite["Button_type"] as string;
+                    this.Main_Grid.Background = new ImageBrush {
+                        ImageSource = new BitmapImage(new Uri(composite["Background"] as string))
+                    };
+                    this.RequestedTheme = (bool)composite["Theme"] == true ? ElementTheme.Light : ElementTheme.Dark;
                     if (composite.ContainsKey("Item_Id")) {
                         listItemViewModels.select_item = 
                             listItemViewModels.GetListItemByID((int)composite["Item_Id"]);
@@ -70,7 +76,9 @@ namespace App1
                     ["Detail"] = DetailBox.Text,
                     ["Date"] = DatePicker.Date.ToString(),
                     ["Image_uri"] = ((BitmapImage)Image.Source).UriSource.ToString(),
-                    ["Button_type"] = this.CreateButton.Content.ToString()
+                    ["Button_type"] = this.CreateButton.Content.ToString(),
+                    ["Background"] = ((BitmapImage)((ImageBrush)this.Main_Grid.Background).ImageSource).UriSource.ToString(),
+                    ["Theme"] = this.RequestedTheme == ElementTheme.Dark ? false : true
                 };
                 
                 //保存当前select_item的ID以恢复
