@@ -11,6 +11,7 @@ using Windows.Storage;
 using App1.ViewModels;
 using Windows.UI.Xaml.Media;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -62,11 +63,14 @@ namespace App1
                         listItemViewModels.select_item = 
                             listItemViewModels.GetListItemByID((int)composite["Item_Id"]);
                         DeleteButton.Visibility = Visibility.Visible;
+                        ShareButton.Visibility = Visibility.Visible;
                         CreateButton.Content = "Update";
                     }
                     ApplicationData.Current.LocalSettings.Values.Remove("NewPage");
                 }
             }
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                AppViewBackButtonVisibility.Visible;
 
         }
 

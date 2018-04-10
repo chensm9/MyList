@@ -86,10 +86,10 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"  IsChecked="{x:Bind Complete,Mode=TwoWay}"/>
-                        <Image Grid.Column="1" Source="{x:Bind Image, Mode=TwoWay}" Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
-                        <TextBlock Grid.Column="2" Text="{x:Bind Title, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20"/>
-                        <Line Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center" Visibility="{x:Bind Line_Visibility, Mode=TwoWay}"/>
+                        <CheckBox Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"  IsChecked="{x:Bind Complete,Mode=TwoWay}" Click="CheckBox_Click"/>
+                        <Image Grid.Column="1" Source="{x:Bind Image, Mode=OneWay}" Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
+                        <TextBlock Grid.Column="2" Text="{x:Bind Title, Mode=OneWay}" VerticalAlignment="Center" FontSize="20"/>
+                        <Line Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center" Visibility="{x:Bind Line_Visibility, Mode=OneWay}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

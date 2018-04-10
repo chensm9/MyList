@@ -86,7 +86,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox x:ConnectionId='24' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                           />
+                        <CheckBox x:ConnectionId='24' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                                                  />
                         <Image x:ConnectionId='25' Grid.Column="1"                                      Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
                         <TextBlock x:ConnectionId='26' Grid.Column="2"                                    VerticalAlignment="Center" FontSize="20"/>
                         <Line x:ConnectionId='27' Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center"                                                   />

@@ -13,9 +13,7 @@ namespace App1.Models {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ListItem() {
-            ID = DateTime.Now.GetHashCode();
             complete = false;
-            Line_Visibility = Visibility.Collapsed;
         }
 
         [PrimaryKey]
@@ -26,7 +24,6 @@ namespace App1.Models {
         public string title { get; set; }
         public Boolean? complete { get; set; }
 
-        private Visibility line_visibility;
 
         [Ignore]
         public int ID {
@@ -87,27 +84,21 @@ namespace App1.Models {
 
         [Ignore]
         public Visibility Line_Visibility {
-            get { return this.line_visibility; }
-            set {
-                line_visibility = value;
-                NotifyPropertyChanged("Line_Visibility");
+            get {
+                return complete == true ? Visibility.Visible : Visibility.Collapsed; ;
             }
+            set {}
         }
 
         [Ignore]
         public Boolean? Complete {
-            set {
-                complete = value;
-                if (complete == true)
-                    Line_Visibility = Visibility.Visible;
-                else
-                    Line_Visibility = Visibility.Collapsed;
-
-                NotifyPropertyChanged("Complete");
-                ListItemViewModels.get_instance().UpdateListItem(this);
-            }
             get {
                 return complete;
+            }
+            set {
+                complete = value;
+                NotifyPropertyChanged("Line_Visibility");
+                NotifyPropertyChanged("Complete");
             }
         }
     }

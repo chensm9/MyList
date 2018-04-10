@@ -14,6 +14,7 @@ using App1.Models;
 using Windows.System;
 using Windows.ApplicationModel;
 using Windows.Storage.Streams;
+using System.Threading.Tasks;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -177,7 +178,7 @@ namespace App1
                 }
             }
 
-            listItemViewModels.Search(SearchBox.Text);
+            //listItemViewModels.Search(SearchBox.Text);
             //隐藏回退按钮
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 AppViewBackButtonVisibility.Collapsed;
@@ -251,12 +252,24 @@ namespace App1
                            "detail: " + item.detail + "\n" +
                            "due date: "+ item.date + "\n\n";
             }
+            if(message == "") {
+                message = "搜索不到相关条目";
+            }
             MessageDialog dialog = new MessageDialog(message);
             await dialog.ShowAsync();
         }
 
         private void SearchAndChange(object sender, TextChangedEventArgs e) {
             listItemViewModels.Search(SearchBox.Text);
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e) {
+            CheckBox checkBox = sender as CheckBox;
+            ListItem item = checkBox.DataContext as ListItem;
+            Task task = new Task(() => {
+                listItemViewModels.UpdateListItem(item);
+            });
+            task.Start();
         }
     }
 
