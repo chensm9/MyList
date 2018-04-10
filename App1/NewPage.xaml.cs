@@ -10,6 +10,7 @@ using App1.Models;
 using Windows.Storage;
 using App1.ViewModels;
 using Windows.UI.Xaml.Media;
+using Windows.Storage.Streams;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -34,6 +35,7 @@ namespace App1
             base.OnNavigatedTo(e);
             if (e.Parameter != null && (string)e.Parameter == "update" && listItemViewModels.select_item != null) {
                 DeleteButton.Visibility = Visibility.Visible;
+                ShareButton.Visibility = Visibility.Visible;
                 CreateButton.Content = "Update";
                 TitleBox.Text = listItemViewModels.select_item.Title;
                 DetailBox.Text = listItemViewModels.select_item.Detail;
@@ -188,5 +190,27 @@ namespace App1
             }
         }
 
+
+        private async void Share(object sender, RoutedEventArgs e) {
+            var emailMessage = new Windows.ApplicationModel.Email.EmailMessage();
+            emailMessage.Subject = listItemViewModels.select_item.title;
+            emailMessage.Body = "due time: " + listItemViewModels.select_item.date + "\n" +
+                                "description: " + listItemViewModels.select_item.detail + "\n\n";
+
+            string[] parts = listItemViewModels.select_item.image_uri.Split('/');
+            string fileName = parts[parts.Length - 1];
+
+            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+                            "Picture",
+                            CreationCollisionOption.OpenIfExists);
+            var attachmentFile = await folder.GetFileAsync(fileName);
+            var stream = RandomAccessStreamReference.CreateFromFile(attachmentFile);
+
+            var attachment = new Windows.ApplicationModel.Email.EmailAttachment(
+                attachmentFile.Name,
+                stream);
+            emailMessage.Attachments.Add(attachment);
+            await Windows.ApplicationModel.Email.EmailManager.ShowComposeNewEmailAsync(emailMessage);
+        }
     }
 }

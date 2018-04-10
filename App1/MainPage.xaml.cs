@@ -11,6 +11,9 @@ using Windows.UI.Core;
 using Windows.Storage;
 using App1.ViewModels;
 using App1.Models;
+using Windows.System;
+using Windows.ApplicationModel;
+using Windows.Storage.Streams;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -36,6 +39,7 @@ namespace App1
                 clear();
                 return;
             }
+
             this.Frame.Background = this.Main_Grid.Background;
             this.Frame.RequestedTheme = this.RequestedTheme;
             this.Frame.Navigate(typeof(NewPage), "add");
@@ -108,6 +112,28 @@ namespace App1
             clear();
         }
 
+        private async void Share(object sender, RoutedEventArgs e) {
+            var emailMessage = new Windows.ApplicationModel.Email.EmailMessage();
+            emailMessage.Subject = listItemViewModels.select_item.title;
+            emailMessage.Body = "due time: " + listItemViewModels.select_item.date + "\n" +
+                                "description: " + listItemViewModels.select_item.detail + "\n\n";
+
+            string[] parts = listItemViewModels.select_item.image_uri.Split('/');
+            string fileName = parts[parts.Length - 1];
+
+            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+                            "Picture", 
+                            CreationCollisionOption.OpenIfExists);
+            var attachmentFile = await folder.GetFileAsync(fileName);
+            var stream = RandomAccessStreamReference.CreateFromFile(attachmentFile);
+
+            var attachment = new Windows.ApplicationModel.Email.EmailAttachment(
+                attachmentFile.Name,
+                stream);
+            emailMessage.Attachments.Add(attachment);
+            await Windows.ApplicationModel.Email.EmailManager.ShowComposeNewEmailAsync(emailMessage);
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e) {
             clear();
         }
@@ -119,14 +145,17 @@ namespace App1
                 DatePicker.Date = DateTime.Now;
                 Image.Source = new BitmapImage(new Uri(BaseUri, "Assets/gakki2.jpg"));
                 DeleteButton.Visibility = Visibility.Collapsed;
+                ShareButton.Visibility = Visibility.Collapsed;
             } else {
                 TitleBox.Text = listItemViewModels.select_item.Title;
                 DetailBox.Text = listItemViewModels.select_item.Detail;
                 DatePicker.Date = listItemViewModels.select_item.Date;
                 Image.Source = listItemViewModels.select_item.Image;
                 DeleteButton.Visibility = Visibility.Visible;
+                ShareButton.Visibility = Visibility.Visible;
             }
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             if (e.NavigationMode == NavigationMode.New) {
                 if (ApplicationData.Current.LocalSettings.Values.ContainsKey("MainPage"))
@@ -148,7 +177,7 @@ namespace App1
                 }
             }
 
-            base.OnNavigatedTo(e);
+            listItemViewModels.Search(SearchBox.Text);
             //隐藏回退按钮
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 AppViewBackButtonVisibility.Collapsed;
@@ -215,6 +244,20 @@ namespace App1
             this.Frame.Background = this.Main_Grid.Background;
         }
 
+        private async void Search(object sender, RoutedEventArgs e) {
+            string message = "";
+            foreach (var item in listItemViewModels.Allitems) {
+                message += "title: " + item.title + "\n" + 
+                           "detail: " + item.detail + "\n" +
+                           "due date: "+ item.date + "\n\n";
+            }
+            MessageDialog dialog = new MessageDialog(message);
+            await dialog.ShowAsync();
+        }
+
+        private void SearchAndChange(object sender, TextChangedEventArgs e) {
+            listItemViewModels.Search(SearchBox.Text);
+        }
     }
 
 }

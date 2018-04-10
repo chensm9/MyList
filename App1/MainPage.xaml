@@ -25,6 +25,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="DeleteButton.Visibility" Value="Collapsed" />
+                        <Setter Target="ShareButton.Visibility" Value="Collapsed" />
                         <Setter Target="Picture.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -34,6 +35,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="DeleteButton.Visibility" Value="Collapsed" />
+                        <Setter Target="ShareButton.Visibility" Value="Collapsed" />
                         <Setter Target="Picture.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
@@ -61,7 +63,19 @@
 
         <ListView x:Name="ListView" Grid.Column="0" ItemsSource="{x:Bind listItemViewModels.Allitems}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True" ItemClick="Edit">
             <ListView.Header>
-                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Height="60" FontWeight="Bold" Text="  TODO LIST" Margin="20"/>
+                <Grid Height="120" MinWidth="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text=" TODO LIST" FontSize="50" FontWeight="Bold"/>
+                    <TextBox x:Name="SearchBox" Grid.Column="0" Grid.Row="1" FontSize="18" Margin="15,0,0,0" Height="30" TextChanged="SearchAndChange"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Search" Margin="0,0,50,0" Click="Search"/>
+                </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:ListItem">
@@ -101,6 +115,7 @@
     <Page.BottomAppBar>
         <CommandBar Background="#009FCC" HorizontalAlignment="Stretch" Margin="0,0,0,0" Height="50" >
             <AppBarButton x:Name="DeleteButton" Icon="Delete" Visibility="Collapsed" Click="Delete" />
+            <AppBarButton x:Name="ShareButton" Icon="Mail" Visibility="Collapsed" Click="Share"/>
             <AppBarButton Icon="Add" Click="Add_Click"/>
             <AppBarButton Icon="Emoji" >
                 <AppBarButton.Flyout>

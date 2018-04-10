@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.Storage;
+using Windows.UI.Notifications;
 
 namespace App1
 {
@@ -27,6 +28,9 @@ namespace App1
             this.Suspending += OnSuspending;
             ApplicationView.PreferredLaunchViewSize = new Size(570, 650);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear(); // 清空队列
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true); // 实现通知循环
         }
 
         /// <summary>

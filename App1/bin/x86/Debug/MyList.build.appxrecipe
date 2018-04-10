@@ -379,47 +379,25 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.22.0\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\castle.jpg">
-      <PackagePath>Assets\castle.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\BadgeLogo.scale-100.png">
+      <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\girl.jpg">
-      <PackagePath>Assets\girl.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\BadgeLogo.scale-125.png">
+      <PackagePath>Assets\BadgeLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki.jpg">
-      <PackagePath>Assets\gakki.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\BadgeLogo.scale-150.png">
+      <PackagePath>Assets\BadgeLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki0.jpg">
-      <PackagePath>Assets\gakki0.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\BadgeLogo.scale-200.png">
+      <PackagePath>Assets\BadgeLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki1.jpg">
-      <PackagePath>Assets\gakki1.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki2.jpg">
-      <PackagePath>Assets\gakki2.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki3.jpg">
-      <PackagePath>Assets\gakki3.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\grass.jpg">
-      <PackagePath>Assets\grass.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\nepal.jpg">
-      <PackagePath>Assets\nepal.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\raindrops.jpg">
-      <PackagePath>Assets\raindrops.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sea.jpg">
-      <PackagePath>Assets\sea.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sky.jpg">
-      <PackagePath>Assets\sky.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.jpg">
-      <PackagePath>Assets\SplashScreen.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\superman.jpg">
-      <PackagePath>Assets\superman.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\BadgeLogo.scale-400.png">
+      <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
@@ -564,8 +542,24 @@
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-100.png">
@@ -587,6 +581,48 @@
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\castle.jpg">
+      <PackagePath>Assets\castle.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\girl.jpg">
+      <PackagePath>Assets\girl.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki.jpg">
+      <PackagePath>Assets\gakki.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki0.jpg">
+      <PackagePath>Assets\gakki0.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki1.jpg">
+      <PackagePath>Assets\gakki1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki2.jpg">
+      <PackagePath>Assets\gakki2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\gakki3.jpg">
+      <PackagePath>Assets\gakki3.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\grass.jpg">
+      <PackagePath>Assets\grass.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\nepal.jpg">
+      <PackagePath>Assets\nepal.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\raindrops.jpg">
+      <PackagePath>Assets\raindrops.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sea.jpg">
+      <PackagePath>Assets\sea.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\sky.jpg">
+      <PackagePath>Assets\sky.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\SplashScreen.jpg">
+      <PackagePath>Assets\SplashScreen.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Assets\superman.jpg">
+      <PackagePath>Assets\superman.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

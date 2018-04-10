@@ -39,6 +39,7 @@
     <Page.BottomAppBar>
         <CommandBar Background="#009FCC" HorizontalAlignment="Stretch" Margin="0,0,0,0" Height="50" VerticalAlignment="Bottom">
             <AppBarButton x:ConnectionId='13' x:Name="DeleteButton" Icon="Delete" Visibility="Collapsed"                />
+            <AppBarButton x:ConnectionId='14' x:Name="ShareButton" Icon="Mail" Visibility="Collapsed"              />
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

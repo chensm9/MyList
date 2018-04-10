@@ -25,6 +25,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="DeleteButton.Visibility" Value="Collapsed" />
+                        <Setter Target="ShareButton.Visibility" Value="Collapsed" />
                         <Setter Target="Picture.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -34,6 +35,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="DeleteButton.Visibility" Value="Collapsed" />
+                        <Setter Target="ShareButton.Visibility" Value="Collapsed" />
                         <Setter Target="Picture.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
@@ -61,21 +63,33 @@
 
         <ListView x:ConnectionId='6' x:Name="ListView" Grid.Column="0"                                                    HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" IsItemClickEnabled="True"                 >
             <ListView.Header>
-                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Height="60" FontWeight="Bold" Text="  TODO LIST" Margin="20"/>
+                <Grid Height="120" MinWidth="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text=" TODO LIST" FontSize="50" FontWeight="Bold"/>
+                    <TextBox x:ConnectionId='21' x:Name="SearchBox" Grid.Column="0" Grid.Row="1" FontSize="18" Margin="15,0,0,0" Height="30"                              />
+                    <Button x:ConnectionId='22' Grid.Column="1" Grid.Row="1" Content="Search" Margin="0,0,50,0"               />
+                </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate                           >
-                    <Grid x:ConnectionId='21' Height="100" MinWidth="300">
+                    <Grid x:ConnectionId='23' Height="100" MinWidth="300">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="42"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                           />
-                        <Image x:ConnectionId='23' Grid.Column="1"                                      Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
-                        <TextBlock x:ConnectionId='24' Grid.Column="2"                                    VerticalAlignment="Center" FontSize="20"/>
-                        <Line x:ConnectionId='25' Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center"                                                   />
+                        <CheckBox x:ConnectionId='24' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="32"                                           />
+                        <Image x:ConnectionId='25' Grid.Column="1"                                      Height="80" Width="80" Margin="10" Visibility="{Binding Path=Visibility, ElementName=Picture}"/>
+                        <TextBlock x:ConnectionId='26' Grid.Column="2"                                    VerticalAlignment="Center" FontSize="20"/>
+                        <Line x:ConnectionId='27' Grid.Column="2" Stretch="Fill" Stroke="Red" StrokeThickness="4" X1="1" VerticalAlignment="Center"                                                   />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -100,19 +114,20 @@
     </Grid>
     <Page.BottomAppBar>
         <CommandBar Background="#009FCC" HorizontalAlignment="Stretch" Margin="0,0,0,0" Height="50" >
-            <AppBarButton x:ConnectionId='26' x:Name="DeleteButton" Icon="Delete" Visibility="Collapsed"                />
-            <AppBarButton x:ConnectionId='27' Icon="Add"                  />
+            <AppBarButton x:ConnectionId='28' x:Name="DeleteButton" Icon="Delete" Visibility="Collapsed"                />
+            <AppBarButton x:ConnectionId='29' x:Name="ShareButton" Icon="Mail" Visibility="Collapsed"              />
+            <AppBarButton x:ConnectionId='30' Icon="Add"                  />
             <AppBarButton Icon="Emoji" >
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:ConnectionId='28' Text="sky"                          />
-                        <MenuFlyoutItem x:ConnectionId='29' Text="sea"                          />
-                        <MenuFlyoutItem x:ConnectionId='30' Text="grass"                          />
-                        <MenuFlyoutItem x:ConnectionId='31' Text="girl"                          />
-                        <MenuFlyoutItem x:ConnectionId='32' Text="nepal"                          />
-                        <MenuFlyoutItem x:ConnectionId='33' Text="castle"                          />
-                        <MenuFlyoutItem x:ConnectionId='34' Text="superman"                          />
-                        <MenuFlyoutItem x:ConnectionId='35' Text="raindrops"                          />
+                        <MenuFlyoutItem x:ConnectionId='31' Text="sky"                          />
+                        <MenuFlyoutItem x:ConnectionId='32' Text="sea"                          />
+                        <MenuFlyoutItem x:ConnectionId='33' Text="grass"                          />
+                        <MenuFlyoutItem x:ConnectionId='34' Text="girl"                          />
+                        <MenuFlyoutItem x:ConnectionId='35' Text="nepal"                          />
+                        <MenuFlyoutItem x:ConnectionId='36' Text="castle"                          />
+                        <MenuFlyoutItem x:ConnectionId='37' Text="superman"                          />
+                        <MenuFlyoutItem x:ConnectionId='38' Text="raindrops"                          />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
