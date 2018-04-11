@@ -11,8 +11,6 @@ using Windows.UI.Core;
 using Windows.Storage;
 using App1.ViewModels;
 using App1.Models;
-using Windows.System;
-using Windows.ApplicationModel;
 using Windows.Storage.Streams;
 using System.Threading.Tasks;
 

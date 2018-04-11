@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-10T16:35:57.996</Modified>
+      <Modified>2018-04-11T01:26:17.940</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2018-04-10T16:35:57.225</Modified>
+      <Modified>2018-04-11T01:26:16.827</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -832,11 +832,11 @@
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-10T16:35:57.758</Modified>
+      <Modified>2018-04-11T01:26:17.510</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\admin\Desktop\MyList\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2018-04-10T16:35:57.990</Modified>
+      <Modified>2018-04-11T01:26:17.934</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

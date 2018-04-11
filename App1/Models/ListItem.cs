@@ -1,5 +1,4 @@
-﻿using App1.ViewModels;
-using SQLite.Net.Attributes;
+﻿using SQLite.Net.Attributes;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -85,7 +84,7 @@ namespace App1.Models {
         [Ignore]
         public Visibility Line_Visibility {
             get {
-                return complete == true ? Visibility.Visible : Visibility.Collapsed; ;
+                return complete == true ? Visibility.Visible : Visibility.Collapsed;
             }
             set {}
         }
