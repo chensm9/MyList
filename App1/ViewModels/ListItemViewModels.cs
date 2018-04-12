@@ -85,20 +85,18 @@ namespace App1.ViewModels {
             }
         }
 
-        public List<ListItem> Search(string text) {
-            Regex reg = new Regex(text);
-            SQLiteCommand cmd = conn.CreateCommand("select * from ListItem");
-            List<ListItem> list = cmd.ExecuteQuery<ListItem>();
-            List<ListItem> list2 = new List<ListItem>();
-
+        public void Search(string text) {
+            string sql_like = '%' + text + '%';
+            List<ListItem> list = conn.Query<ListItem>("select * from ListItem " +
+                                                        "where title like ? " +
+                                                        "or detail like ? " +
+                                                        "or date like ?", sql_like, sql_like, sql_like);
             Allitems.Clear();
-            foreach (var item in list) {
-                if (reg.IsMatch(item.title) || reg.IsMatch(item.detail) || reg.IsMatch(item.date)) {
-                    Allitems.Add(item);
-                }
+            foreach(var item in list) {
+                Allitems.Add(item);
             }
-            return list2;
-         }
+
+        }
 
         public ListItem GetListItemByID(int id) {
             foreach(var item in Allitems) {

@@ -86,7 +86,7 @@ namespace App1.Models {
             get {
                 return complete == true ? Visibility.Visible : Visibility.Collapsed;
             }
-            set {}
+            set { }
         }
 
         [Ignore]
