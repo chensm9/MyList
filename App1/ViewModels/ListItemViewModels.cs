@@ -109,22 +109,17 @@ namespace App1.ViewModels {
         }
 
         private void UpdateTile() {
-            // Create a tile update manager for the specified syndication feed.
             var updater = TileUpdateManager.CreateTileUpdaterForApplication();
             updater.EnableNotificationQueue(true);
             updater.Clear();
 
-            // Keep track of the number feed items that get tile notifications.
             int itemCount = 0;
 
-            // Create a tile notification for each feed item.
             foreach (var item in Allitems) {
                 XmlDocument tileXml = TileService.CreateTiles(item);
-                // Create a new tile notification.
                 updater.Update(new TileNotification(tileXml));
-
-                // Don't create more than 5 notifications.
-                if (itemCount++ > 5) break;
+                itemCount++;
+                if (itemCount >= 5) break;
             }
             TileService.SetBadgeCountOnTile(Allitems.Count);
         }
