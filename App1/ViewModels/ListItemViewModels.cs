@@ -109,19 +109,23 @@ namespace App1.ViewModels {
         }
 
         private void UpdateTile() {
-            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
-            updater.EnableNotificationQueue(true);
-            updater.Clear();
+            System.Threading.Tasks.Task task = new System.Threading.Tasks.Task(() => {
+                var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+                updater.EnableNotificationQueue(true);
+                updater.Clear();
 
-            int itemCount = 0;
+                List<ListItem> item_list = conn.Query<ListItem>("select * from ListItem");
+                int itemCount = 0;
 
-            foreach (var item in Allitems) {
-                XmlDocument tileXml = TileService.CreateTiles(item);
-                updater.Update(new TileNotification(tileXml));
-                itemCount++;
-                if (itemCount >= 5) break;
-            }
-            TileService.SetBadgeCountOnTile(Allitems.Count);
+                foreach (var item in item_list) {
+                    XmlDocument tileXml = TileService.CreateTiles(item);
+                    updater.Update(new TileNotification(tileXml));
+                    itemCount++;
+                    if (itemCount >= 5) break;
+                }
+                TileService.SetBadgeCountOnTile(item_list.Count);
+            });
+            task.Start();
         }
 
     }
