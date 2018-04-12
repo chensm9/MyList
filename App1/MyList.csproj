@@ -104,7 +104,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TileService.cs" />
-    <Compile Include="Services\ToastService.cs" />
     <Compile Include="ViewModels\ListItemViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
