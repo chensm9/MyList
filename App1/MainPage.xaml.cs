@@ -28,8 +28,17 @@ namespace App1
         public MainPage() {
             NavigationCacheMode = NavigationCacheMode.Enabled;
             this.InitializeComponent();
-
+            
             listItemViewModels = ListItemViewModels.get_instance();
+            this.Init();
+        }
+
+        private async void Init() {
+            StorageFolder applicationFolder = ApplicationData.Current.LocalFolder;
+            StorageFolder folder = await applicationFolder.CreateFolderAsync("Picture", CreationCollisionOption.OpenIfExists);
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri(BaseUri, "Assets/gakki2.jpg"));
+            string new_name = file.Name;
+            await file.CopyAsync(folder, new_name, NameCollisionOption.ReplaceExisting);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e) {
