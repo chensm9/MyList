@@ -13,6 +13,7 @@ using App1.ViewModels;
 using App1.Models;
 using Windows.Storage.Streams;
 using System.Threading.Tasks;
+using System.Text;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -253,16 +254,17 @@ namespace App1
         }
 
         private async void Search(object sender, RoutedEventArgs e) {
-            string message = "";
+            StringBuilder message = new StringBuilder("");
             foreach (var item in listItemViewModels.Allitems) {
-                message += "title: " + item.title + "\n" + 
-                           "detail: " + item.detail + "\n" +
-                           "due date: "+ item.date + "\n\n";
+                message.AppendLine("title: " + item.title);
+                message.AppendLine("detail: " + item.detail);
+                message.AppendLine("due date: " + item.date);
+                message.AppendLine();
             }
-            if(message == "") {
-                message = "搜索不到相关条目";
+            if(message.Equals("")) {
+                message.AppendLine("搜索不到相关条目");
             }
-            MessageDialog dialog = new MessageDialog(message);
+            MessageDialog dialog = new MessageDialog(message.ToString());
             await dialog.ShowAsync();
         }
 
