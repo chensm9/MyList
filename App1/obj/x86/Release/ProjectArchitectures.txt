@@ -1,1 +1,0 @@
-C:\Users\admin\Desktop\lab1code\App1\MyList.csproj;x86

@@ -359,14 +359,14 @@ C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\MainPage.g.cs
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\NewPage.g.i.cs
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\NewPage.g.cs
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\XamlTypeInfo.g.cs
-C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\Themes\Generic.xaml
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\App.xaml
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\MainPage.xaml
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\NewPage.xaml
-C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\Themes\Generic.xbf
+C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\Themes\Generic.xaml
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\App.xbf
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\MainPage.xbf
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\NewPage.xbf
+C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\Themes\Generic.xbf
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\MyList.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\MyList\App1\obj\x86\Debug\App1.exe
