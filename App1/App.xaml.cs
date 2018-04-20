@@ -26,8 +26,6 @@ namespace App1
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApplicationView.PreferredLaunchViewSize = new Size(570, 650);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             TileUpdateManager.CreateTileUpdaterForApplication().Clear(); // 清空队列
             TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true); // 实现通知循环
